@@ -29,11 +29,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      #- name: Checkout
-      #  uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+            lfs: 'true'
       - name: Build
         run: |
-          git clone https://github.com/SubhashBose/WPD; cd WPD
+          #git clone https://github.com/SubhashBose/WPD; cd WPD
           cd app
           npm install
           npm run build
@@ -43,7 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './WPD/app'
+          path: './app'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
