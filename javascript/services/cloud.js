@@ -20,7 +20,8 @@
 var wpd = wpd || {};
 
 wpd.isOffline = function() {
-    return wpd.browserInfo.isElectronBrowser();
+    return true;
+    //return wpd.browserInfo.isElectronBrowser();
 };
 
 wpd.isLocalhost = function() {
